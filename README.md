@@ -71,3 +71,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2. Installing Laravel Breeze (for auth)
 3. Creating Migrations and UsersTableSeeder
 4. Test the authentication with roles
+5. Adding frontend template
+6. Creating middleware for roles
+7. Using includes and yield in views
