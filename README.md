@@ -67,7 +67,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Steps of study
 
-1- Configure database (sqlite3 in this case)
-2- Installing Laravel Breeze (for auth)
-3- Creating Migrations and UsersTableSeeder
-4- Test the authentication with roles
+1. Configure database (sqlite3 in this case)
+2. Installing Laravel Breeze (for auth)
+3. Creating Migrations and UsersTableSeeder
+4. Test the authentication with roles
