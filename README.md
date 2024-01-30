@@ -74,3 +74,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 5. Adding frontend template
 6. Creating middleware for roles
 7. Using includes and yield in views
+8. Fixing redirect after login, admin, agent and user

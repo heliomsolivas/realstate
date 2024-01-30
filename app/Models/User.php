@@ -38,4 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getRedirectRoute()
+    {
+        return match($this->role) {
+            "admin" => 'admin/dashboard',
+            "user" => 'dashboard',
+            "agent" => 'agent/dashboard'
+        };
+    }
 }
