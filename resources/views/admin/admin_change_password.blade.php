@@ -56,41 +56,28 @@
           <div class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Update Admin Profile</h6>
-                    <form method="POST" action="{{route('admin.profile.store')}}" class="forms-sample" enctype="multipart/form-data">
+                    <h6 class="card-title">Admin Change Password</h6>
+                    <form method="POST" action="{{route('admin.update.password')}}" class="forms-sample">
                         @csrf
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" id="username" autocomplete="off" value="{{$profileData->username}}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" value="{{$profileData->email}}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" value="{{$profileData->name}}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Phone</label>
-                            <input type="tel" name="phone" class="form-control" id="phone" value="{{$profileData->phone}}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <input type="text" name="address" class="form-control" id="address" value="{{$profileData->address}}">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="formFile">File upload</label>
-							<input class="form-control" name="photo" type="file" id="image">
+                            <label for="old_password" class="form-label">Old password</label>
+                            <input type="password" name="old_password" class="form-control @error('old_password') is-invalid @enderror" id="old_password" autocomplete="off">
+                            @error('old_password')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
-                            <img id="showImage" class="wd-80 rounded-circle" src="{{(!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="">
+                            <label for="new_password" class="form-label">New password</label>
+                            <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="new_password" autocomplete="off">
+                            @error('new_password')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" autocomplete="off" value="{{$profileData->password}}">
+                            <label for="new_password_confirmation" class="form-label">Confirm password</label>
+                            <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation" autocomplete="off">
                         </div>
                         <button type="submit" class="btn btn-primary me-2">Save Changes</button>
                     </form>
@@ -102,17 +89,5 @@
     </div>
 
         </div>
-
-<script>
-    $(document).ready(function(){
-        $('#image').change(function(e){
-            let reader = new FileReader();
-            reader.onload = function(e){
-                $('#showImage').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(e.target.files['0']);
-        });
-    });
-</script>
 
 @endsection
